@@ -1,0 +1,207 @@
+<?xml version = "1.0"?>
+<!--
+Enterprise Browser Configuration file
+-->
+<Configuration>
+   
+  <DebugButtons>
+    <DebugButtonsEnabled value="0" />
+  </DebugButtons>
+  
+  <ExitPassword>
+    <ExitPasswordEnabled value="0" />
+    <ExitPasswordValue value="" />
+  </ExitPassword>
+  
+  <Settings>
+    <SettingsButtonEnabled value="0"/>
+    <SettingsPageProtectionEnabled value="1"/>
+    <SettingsPagePassword value="admin"/>
+  </Settings>
+
+  <Shortcut>
+    <ShortcutCreationEnabled value="0"/>
+  </Shortcut>
+  <ZoomKey>
+        <ZoomInKey value=""/> 
+        <ZoomOutKey value=""/> 
+   </ZoomKey>
+  <Logger>
+    <LogProtocol   value="FILE"/>
+    <LogPort       value="80"/>
+    <LogURI        value="file://%INSTALLDIR%/Log.txt"/>
+    <LogError      value="1"/>
+    <LogWarning    value="1"/>
+    <LogInfo       value="1"/>
+    <LogTrace      value="0"/>
+    <LogUser       value="0"/>
+    <LogMemory     value="0"/>
+    <LogMemPeriod  value="5000"/>
+    <LogMaxSize    value="5000"/>
+  </Logger>
+    
+  <FileLocations>
+    <RegEXFile  value="file://%INSTALLDIR%/RegEx.xml"/>
+  </FileLocations>
+      
+  <Screen>
+    <FullScreen value="1"/>
+	<PageZoom value="1.0" />
+	<EnableZoom value="1"/>
+  </Screen>
+  
+  <WebServer>  
+    <Enabled VALUE="0"/>  
+    <Port VALUE="8082"/>  
+    <WebFolder VALUE=""/>  
+    <Public VALUE="0"/>  
+  </WebServer>
+  
+  <SplashScreen>
+	<SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png"/>
+	<SplashScreenDuration value="0"/>
+  </SplashScreen>
+  
+  <WakeLock>
+    <WakeLockType value=""/>
+  </WakeLock>
+ 
+  <VoidConnection>
+    <TrackConnection value="0"/>
+    <HostURL value="192.168.1.1"/>
+    <Message value="Establishing Connection..."/>
+    <Timeout value="30000"/>
+    <PollInterval value="5000"/>
+  </VoidConnection>
+   
+  <DeviceKeys>
+    <FunctionKeysCapturable	  value="0"/>
+    <EnableFunctionKey_F1     value="1"/>
+    <EnableFunctionKey_F2     value="1"/>
+    <EnableFunctionKey_F3     value="1"/>
+    <EnableFunctionKey_F4     value="1"/>
+    <EnableFunctionKey_F5     value="1"/>
+    <EnableFunctionKey_F6     value="1"/>
+    <EnableFunctionKey_F7     value="1"/>
+    <EnableFunctionKey_F8     value="1"/>
+    <EnableFunctionKey_F9     value="1"/>
+    <EnableFunctionKey_F10    value="1"/>
+    <EnableFunctionKey_F11    value="1"/>
+    <EnableFunctionKey_F12    value="1"/>
+    <EnableApplicationKey_A1  value="1"/>
+    <EnableApplicationKey_A2  value="1"/>
+    <EnableApplicationKey_A3  value="1"/>
+    <EnableApplicationKey_A4  value="1"/>
+    <EnableApplicationKey_A5  value="1"/>
+    <EnableApplicationKey_A6  value="1"/>
+    <EnableApplicationKey_A7  value="1"/>
+    <EnableApplicationKey_A8  value="1"/>
+  </DeviceKeys>
+  
+  <Navigation>
+    <NavTimeout value="45000"/>
+  </Navigation>
+
+  <Geolocation>
+    <GeolocationEnabled value="1"/>
+  </Geolocation> 
+
+	<ScreenOrientation>
+    <AutoRotate value="1" />
+  </ScreenOrientation>
+ 
+  <TabInstance>
+    <NewTabPhysicalMemLimit value="90"/>
+    <NewTabVirtualMemLimit value="80"/>
+  </TabInstance>
+  
+  <Engine>
+    <EngineInUse value="AndroidStock"/>
+  </Engine>
+  
+  <Applications>
+    <Application>
+      
+      <HTTP_Proxy value=""/>
+      <HTTPS_Proxy value=""/>
+      <isWindowsKey  value="0"/>
+      <usedwforscanning  value="0"/>
+      <IntentReceiver>
+        <EnableReceiver  value="0"/>
+        <IntentAction  value=""/>
+        <IntentCategory  value=""/>
+      </IntentReceiver>
+	  
+      <General>
+        <Name value="Menu"/>
+        <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+      </General>
+      
+      <Scanner>
+        <DisableScannerDuringNavigation value="1"/>
+      </Scanner>
+      
+	  <Authentication>
+		<!--  Used for Digest Access Authentication and Basic Access Authentication -->
+		<!--  Global  -->
+		<Username VALUE=""/>
+		<Password VALUE=""/>
+	</Authentication>
+      
+      <HTMLStyles>
+        <JavascriptEnabled     value="1" />
+        <FontFamily            value="Droid Sans Fallback" />
+      </HTMLStyles>
+      
+      <SIP>
+        <ResizeOnSIP  value="1"/>
+      </SIP>
+
+      <System>
+        <LowBatteryScan  value="0"/>
+      </System>
+
+      <Sound>
+        <DecodeVolume           value=""/>
+        <DecodeFrequency        value=""/>
+        <InvalidDecodeFrequency value="0x9C4"/>
+        <DecodeDuration         value=""/>
+        <ScanDecodeWav          value=""/>
+        <ScanInvalidWav         value=""/>
+        <ImagerCaptureWav       value=""/>
+      </Sound>
+      
+      <GUI>
+        <SignalRefresh      value="5000"/>
+        <BatteryRefresh     value="5000"/>
+        <HourglassEnabled   value="1" />
+        <HourglassLeft      value="" />
+        <HourglassTop       value="" />
+      </GUI>
+      
+      <Navigation>
+        <BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
+        <UserAgent  value="" />
+		    <NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/>
+		    <ViewportEnabled value="1"/>
+		    <VerifyPeerCertificate value="1"/>
+        <Cache      VALUE="5MB"/>
+      </Navigation>
+     
+    
+	<DeviceKeys>
+        <EnableCtrlKey_A    value="1"/>
+        <EnableCtrlKey_C    value="1"/>
+        <EnableCtrlKey_V    value="1"/>
+        <EnableCtrlKey_O    value="0"/>
+        <EnableCtrlKey_P    value="0"/>
+      </DeviceKeys>
+  
+      <DefaultMetaTags>
+      </DefaultMetaTags>
+
+      <CustomDOMElements value=""/>
+    
+    </Application>
+  </Applications>
+</Configuration>
