@@ -1,7 +1,6 @@
 package com.darryncampbell.datawedge_websockets_bridge;
 
 import android.app.IntentService;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
@@ -38,6 +37,10 @@ public class WebSocketIntentService extends IntentService {
                 mServer.start();
                 serverStarted = true;
                 Log.d(TAG, "WebSocket Server started");
+            }
+            else
+            {
+                Log.v(TAG, "Did not start server as it is already started");
             }
             String action = intent.getAction();
             if (action != null && action.equals(datawedge_intent_key_action))
