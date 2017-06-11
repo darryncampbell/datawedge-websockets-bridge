@@ -66,7 +66,7 @@ public class MySocketServer extends WebSocketServer {
 
     @Override
     public void onError(WebSocket conn, Exception ex) {
-        Log.e(TAG, "error");
+        Log.e(TAG, "error: " + ex.getMessage());
     }
 
     public void sendScanToBrowser(Intent intent) {
@@ -83,7 +83,7 @@ public class MySocketServer extends WebSocketServer {
             //  If the client has not yet connected to us but we have received a scan then buffer it
             //  and send it when we next connect
             setBufferedScan(intent);
-            Log.w(TAG, "error - socket is null");
+            Log.w(TAG, "error - socket is null, buffering scan");
         }
     }
 

@@ -1,7 +1,9 @@
 package com.darryncampbell.datawedge_websockets_bridge;
 
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import java.net.InetSocketAddress;
 
@@ -14,6 +16,7 @@ public class WebSocketIntentService extends IntentService {
     public static final String datawedge_intent_key_action = "com.symbol.datawedge.barcode.ACTION";
     private static Boolean serverStarted = false;
     private static MySocketServer mServer;
+    private static final String TAG = "Datawedge WS Bridge";
 
 
     public WebSocketIntentService() {
@@ -27,16 +30,19 @@ public class WebSocketIntentService extends IntentService {
         if (intent != null) {
             //  Android may kill the Intent Service, the logic here will awaken the IntentService when it
             //  receives a scan and send it when a client re-connects.
-            if (!serverStarted)
+            if (!serverStarted || mServer == null)
             {
+                Log.d(TAG, "Starting WebSocket Server");
                 //  Start the WebSocket Server
                 mServer = new MySocketServer(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT), this);
                 mServer.start();
                 serverStarted = true;
+                Log.d(TAG, "WebSocket Server started");
             }
-            final String action = intent.getAction();
-            if (action != null && action.equals(datawedge_intent_key_action));
+            String action = intent.getAction();
+            if (action != null && action.equals(datawedge_intent_key_action))
             {
+                Log.d(TAG, "Sending received scan to websocket client");
                 mServer.sendScanToBrowser(intent);
             }
         }
