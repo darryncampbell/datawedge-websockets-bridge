@@ -12,7 +12,7 @@ Interface with Zebra DataWedge using WebSockets
 
 # Steps to use the demo:
 
-1. Configure a DataWedge profile as described earlier and ensure the profile is active when you launch the browser
+1. Configure a DataWedge profile as described in the associated blog post and ensure the profile is active when you launch the browser
 2. Install the bridge application and either launch it or scan a barcode to start the WebSocket server
 3. Start a web server and host the demo page
 4. Navigate to the demo webpage on the device using Chrome or a similar browser capable of WebSockets

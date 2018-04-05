@@ -1,91 +1,1 @@
-<HTML>
-<HEAD>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-.button {
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-	-webkit-user-select: none;  
-    -moz-user-select: none;    
-    -ms-user-select: none;      
-    user-select: none;
-}
-</style>
-<SCRIPT>
-
-var socketClosed = true;
-var address = "127.0.0.1";
-var port = "12345";
-
-<!--  Proof of concept to control DataWedge via Web Sockets -->
-var msg_input_plugin_enable = {"action": "com.symbol.datawedge.api.ACTION_SCANNERINPUTPLUGIN", "extra_key": "com.symbol.datawedge.api.EXTRA_PARAMETER", "extra_value": "ENABLE_PLUGIN"};
-var msg_input_plugin_disable = {"action": "com.symbol.datawedge.api.ACTION_SCANNERINPUTPLUGIN", "extra_key": "com.symbol.datawedge.api.EXTRA_PARAMETER", "extra_value": "DISABLE_PLUGIN"};
-
-function init()
-{
-  ws = new WebSocket("ws://" + address + ":" + port + "/");
-
-  ws.onmessage = function(event) {
-	document.getElementById('socketmessages').innerHTML = event.data + "<BR/>" + document.getElementById('socketmessages').innerHTML;
-	console.log(event.data);
-  };
-
-  //  In production you would want this to be resiliant against the server being killed by Android, by the user navigating between pages or any other unexpected error related to connection.
-  ws.onclose = function() {
-    setSocketStatus("Socket closed");
-	socketClosed = true;
-  };
-
-  ws.onopen = function() {
-    setSocketStatus("Socket Connected");
-	socketClosed = false;
-  };
-
-}
-
-function setSocketStatus(message)
-{
-	document.getElementById('socketstatus').innerHTML = message;
-	console.log("Socket Status: " + message);
-}
-
-function sendMessageToServer(json_msg)
-{
-	if (socketClosed)
-		init();
-	else
-	{
-		ws.send(JSON.stringify(json_msg));
-		//  ws.send("Hello from " + navigator.userAgent);
-	}
-}
-</SCRIPT>
-
-</HEAD>
-<BODY onload="init()">
-<H1>DataWedge WebSocket Bridge</H1>
-<P>
-This web page will communicate with the DataWedge WebSocket bridge
-<P>
-<!--  Principle of sending message to the server to control DataWedge via its API -->
-<div id="enablePluginButton" class="button">Enable Scanner Plugin</div>
-<br><br>
-<div id="disablePluginButton" class="button">Disable Scanner Plugin</div>
-<P>
-<div id="socketstatus" style="font-family:console;color:blue;background:white"></div>
-<div id="socketmessages" style="font-family:console;color:white;background:black"></div>
-
-<script>
-document.getElementById('enablePluginButton').setAttribute("onclick", "sendMessageToServer(msg_input_plugin_enable);");
-document.getElementById('disablePluginButton').setAttribute("onclick", "sendMessageToServer(msg_input_plugin_disable);");
-
-</script>
-
-</BODY>
-</HTML>
+<HTML><HEAD><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>.button {    background-color: #008CBA;    border: none;    color: white;    padding: 10px 15px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: 16px;	-webkit-user-select: none;      -moz-user-select: none;        -ms-user-select: none;          user-select: none;}</style><SCRIPT>var socketClosed = true;var address = "127.0.0.1";var port = "12345";<!--  Proof of concept to control DataWedge via Web Sockets -->var msg_input_plugin_enable = {"action": "com.symbol.datawedge.api.ACTION_SCANNERINPUTPLUGIN", "extra_key": "com.symbol.datawedge.api.EXTRA_PARAMETER", "extra_value": "ENABLE_PLUGIN"};var msg_input_plugin_disable = {"action": "com.symbol.datawedge.api.ACTION_SCANNERINPUTPLUGIN", "extra_key": "com.symbol.datawedge.api.EXTRA_PARAMETER", "extra_value": "DISABLE_PLUGIN"};function init(){  ws = new WebSocket("ws://" + address + ":" + port + "/");  ws.onmessage = function(event) {	document.getElementById('socketmessages').innerHTML = event.data + "<BR/>" + document.getElementById('socketmessages').innerHTML;	console.log(event.data);  };  //  In production you would want this to be resiliant against the server being killed by Android, by the user navigating between pages or any other unexpected error related to connection.  ws.onclose = function() {    setSocketStatus("Socket closed");	socketClosed = true;  };  ws.onopen = function() {    setSocketStatus("Socket Connected");	socketClosed = false;  };}function setSocketStatus(message){	document.getElementById('socketstatus').innerHTML = message;	console.log("Socket Status: " + message);}function sendMessageToServer(json_msg){	if (socketClosed)		init();	else	{		ws.send(JSON.stringify(json_msg));		//  ws.send("Hello from " + navigator.userAgent);	}}</SCRIPT></HEAD><BODY onload="init()"><H1>DataWedge WebSocket Bridge</H1><P>This web page will communicate with the DataWedge WebSocket bridge<P><!--  Principle of sending message to the server to control DataWedge via its API --><small>Buttons require DataWedge 6.0+.  Scanning will work with any DataWedge version.</small><div id="enablePluginButton" class="button">Enable Scanner Plugin</div><br><br><div id="disablePluginButton" class="button">Disable Scanner Plugin</div><P><div id="socketstatus" style="font-family:console;color:blue;background:white"></div><div id="socketmessages" style="font-family:console;color:white;background:black"></div><script>document.getElementById('enablePluginButton').setAttribute("onclick", "sendMessageToServer(msg_input_plugin_enable);");document.getElementById('disablePluginButton').setAttribute("onclick", "sendMessageToServer(msg_input_plugin_disable);");</script></BODY></HTML>
