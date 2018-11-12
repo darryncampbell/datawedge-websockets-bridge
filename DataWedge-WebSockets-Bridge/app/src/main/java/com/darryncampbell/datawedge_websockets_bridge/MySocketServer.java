@@ -39,6 +39,7 @@ public class MySocketServer extends WebSocketServer {
     @Override
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
         Log.i(TAG, "onClose");
+        mSocket = null;
     }
 
     @Override
