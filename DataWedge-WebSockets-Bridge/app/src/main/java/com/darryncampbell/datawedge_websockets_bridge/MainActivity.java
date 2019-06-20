@@ -1,6 +1,7 @@
 package com.darryncampbell.datawedge_websockets_bridge;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -13,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
 
         //  Start the IntentService which will create the WebSocket server
         Intent serviceIntent = new Intent(this, WebSocketIntentService.class);
-        startService(serviceIntent);
+        if (Build.VERSION.SDK_INT >= 26) {
+            startForegroundService(serviceIntent);
+        } else {
+            startService(serviceIntent);
+        }
     }
 }
