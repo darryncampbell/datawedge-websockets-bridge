@@ -19,6 +19,9 @@ Interface with Zebra DataWedge using WebSockets
 5. Scan a barcode, if everything is set up correctly you should see scans appear on the page.  If you do not see scans, check the DataWedge setup and whether the WebSockets are connected, the status is shown in blue on the page.
 6. Disable and re-enable the laser using the buttons on the page, again if everything is set up correctly the buttons should affect the laser.
 
+# Note about running this demo on Oreo or higher:
+A [recent pull request](https://github.com/darryncampbell/datawedge-websockets-bridge/pull/3) added support for Android Oreo and higher, taking account of Android Oreo background restrictions.  To take advantage of this, ensure you configure DataWedge to send Intents as "Send via startForegroundService" OR, preferably in mixed deployments, check the "Use startForegroundService on failure" checkbox in the Intent Output configuration.
+
 # Web application
 ![Alt text](https://raw.githubusercontent.com/darryncampbell/datawedge-websockets-bridge/master/screenshots/chrome.png "Web application")
 
