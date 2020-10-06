@@ -1,10 +1,10 @@
+*Please be aware that this application / sample is provided as-is for demonstration purposes without any guarantee of support*
+=========================================================
+
 # DataWedge-WebSockets-Bridge
 Interface with Zebra DataWedge using WebSockets 
 
 **Read the blog associated with this application at https://darryncampbellblog.wordpress.com/2017/06/11/datawedge-to-websockets-bridge/**
-
-*This application is provided without guarantee or warranty*
-=========================================================
 
 # Architecture
 ![Alt text](https://raw.githubusercontent.com/darryncampbell/datawedge-websockets-bridge/master/screenshots/architecture.png "Architecture")
