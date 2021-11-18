@@ -75,13 +75,6 @@ public class WebSocketIntentService extends IntentService {
             {
                 Log.d(TAG, "Sending received scan to websocket client");
                 mServer.sendScanToBrowser(intent);
-                try {
-                    mServer.stop();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
