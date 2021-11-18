@@ -78,6 +78,8 @@ public class MySocketServer extends WebSocketServer {
             String decodedData = intent.getStringExtra(datawedge_intent_key_data);
             String decodedLabelType = intent.getStringExtra(datawedge_intent_key_label_type);
             String message = "Barcode (" + decodedData + ") [" + decodedLabelType + "]";
+            Log.i(TAG, "Message to send: " + message);
+
             mSocket.send(message);
         }
         else {

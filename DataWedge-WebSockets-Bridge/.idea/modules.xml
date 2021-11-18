@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DataWedge-WebSockets-Bridge.iml" filepath="$PROJECT_DIR$/DataWedge-WebSockets-Bridge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DataWedge-WebSockets-Bridge.iml" filepath="$PROJECT_DIR$/DataWedge-WebSockets-Bridge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DataWedge-WebSockets-Bridge.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DataWedge-WebSockets-Bridge.app.iml" />
     </modules>
   </component>
 </project>
