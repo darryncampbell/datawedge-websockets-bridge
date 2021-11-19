@@ -10,12 +10,12 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 
 public class WebSocketIntentService extends IntentService {
 
     private static final int SERVER_PORT = 12345;
-    private static final String SERVER_ADDRESS = "127.0.0.1";
     //  This MUST match the action defined in DataWedge which is sending us Intents (via startService).
     //  Note: This is also separately defined in the manifest
     public static final String datawedge_intent_key_action = "com.symbol.datawedge.barcode.ACTION";
@@ -57,15 +57,17 @@ public class WebSocketIntentService extends IntentService {
             //  receives a scan and send it when a client re-connects.
             if (!serverStarted || mServer == null)
             {
+                Log.d(TAG, "--------------------------------------------------------------------------------");
                 Log.d(TAG, "Starting WebSocket Server");
                 //  Start the WebSocket Server
-                mServer = new MySocketServer(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT), this);
+                mServer = new MySocketServer(new InetSocketAddress(SERVER_PORT), this);
                 mServer.start();
                 serverStarted = true;
                 Log.d(TAG, "WebSocket Server started");
             }
             else
             {
+                Log.d(TAG, "--------------------------------------------------------------------------------");
                 Log.v(TAG, "Did not start server as it is already started");
             }
             String action = intent.getAction();
